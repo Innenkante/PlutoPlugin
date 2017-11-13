@@ -199,3 +199,8 @@ struct gentity_t
 	entity_state_t state;
 	entity_shared_t shared;
 };
+
+struct level_locals
+{
+	gclient_t *gclients;
+};
