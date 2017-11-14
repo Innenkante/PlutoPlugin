@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "plugin_base.h"
+#include "base.h"
 #include "scr.h"
 
 int function_handle;
@@ -69,6 +69,15 @@ void base::install_scr_player_damaged_callback(
 	internal::scr_player_damaged_pointer_ = (internal::scr_player_damaged_t)internal::detour_function((BYTE*)0x004ACE50, (BYTE*)internal::hk_scr_player_damaged, 0x6);
 }
 
+void base::install_client_spawn_callback(std::function<void(gentity_t*)> callback)
+{
+	internal::client_spawn_callback_ = callback;
+	internal::client_spawn_pointer_ = (internal::client_spawn_t)internal::detour_function((BYTE*)0x00471980, (BYTE*)internal::hk_client_spawn, 0x6);
+}
+
+
+
+
 char* base::internal::hk_g_say(gentity_t* entity, team team, char* msg)
 {
 	g_say_callback_(entity, &team, msg);
@@ -97,6 +106,12 @@ void base::internal::hk_scr_player_damaged(gentity_t* player_who_was_damaged, ge
 {
 	scr_player_damaged_callback_(player_who_was_damaged, inflictor, player_who_damanged, &damage, &mod, &weapon_index, &is_alternate_weapon, direction, &hit_location);
 	return scr_player_damaged_pointer_(player_who_was_damaged, inflictor, player_who_damanged, damage, unknown_0, mod, weapon_index, is_alternate_weapon, direction, unknown_1, hit_location, unknown_2);
+}
+
+void base::internal::hk_client_spawn(gentity_t* entity, vec3_t spawn_position, vec3_t view_angle)
+{
+	client_spawn_callback_(entity);
+	return client_spawn_pointer_(entity, spawn_position, view_angle);
 }
 
 
