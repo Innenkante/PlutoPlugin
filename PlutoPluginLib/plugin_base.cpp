@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "plugin_base.h"
+#include "scr.h"
 
 int function_handle;
 int object_ref;
@@ -68,17 +69,6 @@ void base::install_scr_player_damaged_callback(
 	internal::scr_player_damaged_pointer_ = (internal::scr_player_damaged_t)internal::detour_function((BYTE*)0x004ACE50, (BYTE*)internal::hk_scr_player_damaged, 0x6);
 }
 
-
-gentity_t* base::gscr_get_entiy(int entity_number)
-{
-	return internal::gscr_get_entity_pointer_(entity_number);
-}
-
-gentity_t* base::scr_get_entity(int object_number)
-{
-	return internal::scr_get_entity_pointer_(object_number);
-}
-
 char* base::internal::hk_g_say(gentity_t* entity, team team, char* msg)
 {
 	g_say_callback_(entity, &team, msg);
@@ -88,9 +78,9 @@ char* base::internal::hk_g_say(gentity_t* entity, team team, char* msg)
 void base::internal::exec_ent_thread_num_helper(int function_handle, int object_ref)
 {
 	if (function_handle == 412300 && client_connect_callback_ != nullptr)
-		client_connect_callback_(scr_get_entity(object_ref));
+		client_connect_callback_(scr::get_entity(object_ref));
 	if (function_handle == 412332 && client_disconnect_callback_ != nullptr)
-		client_disconnect_callback_(scr_get_entity(object_ref));
+		client_disconnect_callback_(scr::get_entity(object_ref));
 }
 
 void base::internal::hk_scr_player_killed(gentity_t* player_who_died, gentity_t* inflictor, gentity_t* killer,

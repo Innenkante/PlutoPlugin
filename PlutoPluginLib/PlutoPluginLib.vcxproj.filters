@@ -27,12 +27,24 @@
     <ClInclude Include="datatypes.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="scr.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="gscr.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="plugin_base.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="scr.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="gscr.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

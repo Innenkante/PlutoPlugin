@@ -144,12 +144,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="datatypes.h" />
+    <ClInclude Include="gscr.h" />
     <ClInclude Include="plugin_base.h" />
+    <ClInclude Include="scr.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="gscr.cpp" />
     <ClCompile Include="plugin_base.cpp" />
+    <ClCompile Include="scr.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
