@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlutoPluginLib", "PlutoPlug
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirstPlugin", "FirstPlugin\FirstPlugin.vcxproj", "{EC3BB7C5-99E3-4AB4-8D95-283052A22FA5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleWelcomer", "SimpleWelcomer\SimpleWelcomer.vcxproj", "{03F7BA4E-7BAC-4CD3-B575-640E85BA548B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{EC3BB7C5-99E3-4AB4-8D95-283052A22FA5}.Release|x64.Build.0 = Release|x64
 		{EC3BB7C5-99E3-4AB4-8D95-283052A22FA5}.Release|x86.ActiveCfg = Release|Win32
 		{EC3BB7C5-99E3-4AB4-8D95-283052A22FA5}.Release|x86.Build.0 = Release|Win32
+		{03F7BA4E-7BAC-4CD3-B575-640E85BA548B}.Debug|x64.ActiveCfg = Debug|x64
+		{03F7BA4E-7BAC-4CD3-B575-640E85BA548B}.Debug|x64.Build.0 = Debug|x64
+		{03F7BA4E-7BAC-4CD3-B575-640E85BA548B}.Debug|x86.ActiveCfg = Debug|Win32
+		{03F7BA4E-7BAC-4CD3-B575-640E85BA548B}.Debug|x86.Build.0 = Debug|Win32
+		{03F7BA4E-7BAC-4CD3-B575-640E85BA548B}.Release|x64.ActiveCfg = Release|x64
+		{03F7BA4E-7BAC-4CD3-B575-640E85BA548B}.Release|x64.Build.0 = Release|x64
+		{03F7BA4E-7BAC-4CD3-B575-640E85BA548B}.Release|x86.ActiveCfg = Release|Win32
+		{03F7BA4E-7BAC-4CD3-B575-640E85BA548B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

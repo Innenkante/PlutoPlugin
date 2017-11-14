@@ -80,6 +80,11 @@ void base::say_all(char* message)
 	internal::sv_send_server_command_pointer_(0, 0, "%c \"\x15%s\"", 84, message);
 }
 
+void base::sys_print(char* message)
+{
+	internal::sys_print_pointer_(message);
+}
+
 
 char* base::internal::hk_g_say(gentity_t* entity, team team, char* msg)
 {
