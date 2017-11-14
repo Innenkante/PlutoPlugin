@@ -75,7 +75,10 @@ void base::install_client_spawn_callback(std::function<void(gentity_t*)> callbac
 	internal::client_spawn_pointer_ = (internal::client_spawn_t)internal::detour_function((BYTE*)0x00471980, (BYTE*)internal::hk_client_spawn, 0x6);
 }
 
-
+void base::say_all(char* message)
+{
+	internal::sv_send_server_command_pointer_(0, 0, "%c \"\x15%s\"", 84, message);
+}
 
 
 char* base::internal::hk_g_say(gentity_t* entity, team team, char* msg)

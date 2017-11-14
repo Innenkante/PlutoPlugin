@@ -11,6 +11,8 @@ namespace base
 	void install_scr_player_damaged_callback(std::function<void(gentity_t*, gentity_t*, gentity_t*, int*, int*, int*, bool*, vec3_t, int*)> callback);
 	void install_client_spawn_callback(std::function<void(gentity_t*)> callback);
 
+	void say_all(char* message);
+
 	namespace internal
 	{
 		typedef char*(__cdecl* g_say_t)(gentity_t* entity, team team, char* msg);
@@ -18,10 +20,14 @@ namespace base
 		typedef void(__cdecl* scr_player_damaged_t)(gentity_t* player_who_was_damaged, gentity_t* inflictor, gentity_t* player_who_damanged, int damage, int unknown_0, int mod, int weapon_index, bool is_alternate_weapon, vec3_t direction, int unknown_1, int hit_location, int unknown_2);
 		typedef void(__cdecl* client_spawn_t)(gentity_t* entity, vec3_t spawn_position, vec3_t view_angle);
 
+		typedef DWORD(__cdecl* sv_send_server_command_t)(int a1, int a2, char* msg, ...);
+
 		static g_say_t g_say_pointer_ = nullptr;
 		static scr_player_killed_t scr_player_killed_pointer_ = nullptr;
 		static scr_player_damaged_t scr_player_damaged_pointer_ = nullptr;
 		static client_spawn_t client_spawn_pointer_ = nullptr;
+
+		static sv_send_server_command_t sv_send_server_command_pointer_ = (sv_send_server_command_t)0x004FD8E0;
 
 		static std::function<void(gentity_t*, team*, char*)> g_say_callback_ = nullptr;;
 		static std::function<void(gentity_t*)> client_connect_callback_ = nullptr;;
