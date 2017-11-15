@@ -5,6 +5,9 @@ namespace base
 	namespace scr
 	{
 		gentity_t* get_entity(int object_number);
+		DWORD iprint_ln(gentity_t* entity,char* message);
+		DWORD iprint_ln_bold(gentity_t* entity,char* message);
+
 		namespace internal
 		{
 			typedef gentity_t*(__cdecl* scr_get_entity_t)(int object_number);

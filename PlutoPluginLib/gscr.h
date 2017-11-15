@@ -7,6 +7,9 @@ namespace base
 	{
 		gentity_t* get_entity(int entity_number);
 
+		DWORD iprint_ln(char* message);
+		DWORD iprint_ln_bold(char* message);
+
 		namespace internal
 		{
 			typedef gentity_t*(__cdecl* gscr_get_entity_t)(int entity_number);

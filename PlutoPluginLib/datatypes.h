@@ -200,7 +200,9 @@ struct gentity_t
 	entity_shared_t shared;
 };
 
-struct level_locals
+struct level_locals_t
 {
 	gclient_t *gclients;
 };
+
+
