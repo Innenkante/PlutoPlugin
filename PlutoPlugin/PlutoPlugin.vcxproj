@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="Hooks.cpp" />
     <ClCompile Include="PlutoPlugin.cpp" />
     <ClCompile Include="Plugin.cpp" />
     <ClCompile Include="stdafx.cpp">

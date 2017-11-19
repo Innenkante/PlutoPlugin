@@ -5,6 +5,15 @@ namespace PlutoPlugin
 	class Plugin;
 	static std::vector < std::shared_ptr < Plugin > > plugins;
 
+	enum class CallbackType
+	{
+		PlayerSay,
+		PlayerConnecting,
+		PlayerConnected,
+		PlayerDisconnected,
+		ExitLevel,
+	};
+
 	__declspec(dllexport) class Plugin
 	{
 	public:
@@ -20,12 +29,18 @@ namespace PlutoPlugin
 			return pluginHandle;
 		}
 
-		void GetCancer()
+		template <typename T> void InstallCallback(CallbackType type, T function)
 		{
-			MessageBoxA(NULL, "get cancer\n", NULL, NULL);
+			this->callbacks[type] = reinterpret_cast<std::uintptr_t>(function);
+		}
+
+		std::unordered_map < CallbackType, std::uintptr_t >& GetCallbacks()
+		{
+			return this->callbacks;
 		}
 
 	protected:
+		std::unordered_map < CallbackType, std::uintptr_t > callbacks;
 
 	};
 }

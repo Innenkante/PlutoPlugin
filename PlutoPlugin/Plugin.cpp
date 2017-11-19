@@ -6,6 +6,7 @@ namespace PlutoPlugin
 	{
 		// iterate through all files in the plugins directory
 		auto plugins = std::filesystem::path("plugins");
+
 		for (auto &file : std::filesystem::directory_iterator(plugins))
 		{
 			// Check if file extension is .dll
@@ -15,5 +16,6 @@ namespace PlutoPlugin
 				auto plugin = LoadLibraryW(file.path().c_str());
 			}
 		}
+
 	}
 }
